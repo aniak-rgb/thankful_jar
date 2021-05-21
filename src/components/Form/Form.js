@@ -9,6 +9,7 @@ export const Form = () => {
   const [form, setForm] = useState({ firstArea: "", secondArea: "", thirdArea: "" });
   const [startDate, setStartDate] = useState(new Date());
   const [errors, setError] = useState([]);
+  const [success, setSuccess] = useState("")
 
   const handleAddToJar = (e) => {
     const { name, value } = e.target;
@@ -39,10 +40,10 @@ export const Form = () => {
     }
     setError(errorArray);
 
-    if (errors.length === 0) {
+    if (errorArray.length === 0) {
       db.collection("gratitude").add({
         date: startDate.toLocaleDateString(),
-        firtsGratitude: form.firstArea,
+        firstGratitude: form.firstArea,
         secondGratitude: form.secondArea,
         thirdGratitude: form.thirdArea
       })
@@ -53,7 +54,8 @@ export const Form = () => {
           console.error("Error adding document: ", error);
         });
     }
-    setForm({ firstArea: "", secondArea: "", thirdArea: "", })
+    setForm({ firstArea: "", secondArea: "", thirdArea: "", });
+    setSuccess("Wdzięczność została dodana!")
   };
 
 
@@ -63,7 +65,7 @@ export const Form = () => {
       <div className="form__calendar"><p className="calendar__text">wybierz datę:</p><DatePicker selected={startDate} onChange={date => setStartDate(date)} /></div>
 
       <div className="form__area">
-        <div className="form__errors">{errors.length > 0 && errors.map((error, key) => <p key={key} style={{ color: "red" }}>{error}</p>)}</div>
+        <div className="form__errors">{errors.length > 0 && errors.map((error, key) => <p key={key} style={{ color: "red" }}>{error}</p>)}<p style={{ color: "green" }}>{errors.length === 0 && success}</p></div>
         <form className="form__form" onSubmit={handleSubmit}>
 
           <div className="form__inputArea">

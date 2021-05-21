@@ -1,0 +1,59 @@
+.myCards__container {
+  background-image: url('../assets/rockywall.png');
+  background-size: contain;
+  width: 100%;
+  min-height: 100vh;
+
+}
+
+;
+
+.myCards__title {
+  font-family: $main-fonts;
+  text-align: center;
+  color: $color-marin
+}
+
+.myCrads__area {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.myCards__card {
+  background-color: $color-lightBlue;
+  width: 40%;
+  padding: 10px;
+  font-family: $main-fonts;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 2px 3px gray;
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  p {
+    align-self: flex-start;
+    padding: 5px;
+    font-size: $font-size;
+  }
+
+}
+
+.myCards__edit {
+  margin-top: 15px;
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+
+}
+
+.myCards__btn {
+  font-size: $font-size;
+  color: $color-pink;
+  padding: 5px;
+}

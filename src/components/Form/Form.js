@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import DatePicker from "react-datepicker";
+import {
+  Link,
+} from 'react-router-dom';
 
 import "react-datepicker/dist/react-datepicker.css";
 import { db } from "../../firebase"
@@ -49,18 +52,22 @@ export const Form = () => {
       })
         .then((docRef) => {
           console.log("Document written with ID: ", docRef.id);
+          setForm({ firstArea: "", secondArea: "", thirdArea: "", });
+          setSuccess("Wdzięczność została dodana!")
+
+
         })
         .catch((error) => {
           console.error("Error adding document: ", error);
         });
     }
-    setForm({ firstArea: "", secondArea: "", thirdArea: "", });
-    setSuccess("Wdzięczność została dodana!")
-  };
+  }
+
 
 
   return (
     <div className="form__container">
+      <Link to="/">hh</Link>
       <h1 className="form__title">Za co jesteś dziś wdzięczny?</h1>
       <div className="form__calendar"><p className="calendar__text">wybierz datę:</p><DatePicker selected={startDate} onChange={date => setStartDate(date)} /></div>
 
@@ -75,7 +82,7 @@ export const Form = () => {
             <textarea rows="5" className="form__textarea" type="text" placeholder="2.wpisz drugą wdzięczność" value={form.secondArea} onChange={handleAddToJar} name="secondArea" />
           </div>
           <div className="form__inputArea">
-            <textarea rows="5" className="form__textarea" type="text" placeholder="3.wpisz trzecią wdzięczność" value={form.thirdtArea} onChange={handleAddToJar} name="thirdArea" />
+            <textarea rows="5" className="form__textarea" type="text" placeholder="3.wpisz trzecią wdzięczność" value={form.thirdArea} onChange={handleAddToJar} name="thirdArea" />
           </div>
           <button type="submit" className="form__btn">zapisz swoje wdzięczności</button>
         </form>

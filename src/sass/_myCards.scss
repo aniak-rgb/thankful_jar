@@ -4,6 +4,10 @@
   width: 100%;
   min-height: 100vh;
 
+  h1 {
+    margin: 0
+  }
+
 }
 
 ;
@@ -11,7 +15,9 @@
 .myCards__title {
   font-family: $main-fonts;
   text-align: center;
-  color: $color-marin
+  color: $color-marin;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .myCrads__area {

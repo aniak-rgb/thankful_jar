@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DatePicker from "react-datepicker";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import {
   Link,
 } from 'react-router-dom';
@@ -67,7 +69,7 @@ export const Form = () => {
 
   return (
     <div className="form__container">
-      <Link to="/">hh</Link>
+      <Link to="/"><FontAwesomeIcon icon={faArrowAltCircleLeft} className="back__arrow" /></Link>
       <h1 className="form__title">Za co jesteś dziś wdzięczny?</h1>
       <div className="form__calendar"><p className="calendar__text">wybierz datę:</p><DatePicker selected={startDate} onChange={date => setStartDate(date)} /></div>
 

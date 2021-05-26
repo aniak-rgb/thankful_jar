@@ -113,9 +113,9 @@ export const MyCards = () => {
             return (
               <div key={id} className="myCards__card animate__zoomIn animate__animated">
                 <h2>{date}</h2>
-                <p>{`1:${firstGratitude}`}</p>
-                <p>{`2:${secondGratitude}`}</p>
-                <p>{`3:${thirdGratitude}`}</p>
+                <p>{`1. ${firstGratitude}`}</p>
+                <p>{`2. ${secondGratitude}`}</p>
+                <p>{`3. ${thirdGratitude}`}</p>
                 <div className="myCards__edit">
                   <button onClick={() => handleDelete(id)} className="myCards__btn" ><FontAwesomeIcon icon={faTrashAlt} /></button>
                   <button onClick={() => handleEdit(id, firstGratitude, secondGratitude, thirdGratitude)} className="myCards__btn"><FontAwesomeIcon icon={faEdit} /></button>

@@ -1,3 +1,11 @@
 $main-fonts: 'Open Sans',
 sans-serif;
-$font-size: 16px
+$font-size: 16px;
+
+@mixin title {
+  font-family: $main-fonts;
+  text-align: center;
+  color: $color-pink;
+  padding-top: 50px;
+  padding-bottom: 40px;
+}

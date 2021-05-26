@@ -1,12 +1,14 @@
 .form__container {
   height: 100vh;
   width: 100%;
-  background-color: $color-mint;
+  // background-color: $color-mint;
+  background-image: url('../assets/rockywall.png');
+  background-size: contain;
+  width: 100%;
   display: flex;
   flex-direction: column;
-
   align-items: center;
-  padding: 20px 10px;
+  padding: 0px 10px;
 
 
 }
@@ -14,20 +16,23 @@
 ;
 
 .form__title {
-  text-align: center;
-  font-size: $font-size*2.5;
-  color: white;
-  font-family: $main-fonts;
+  // text-align: center;
+  // font-size: $font-size*2.5;
+  // color: white;
+  // font-family: $main-fonts;
+  @include title;
+  margin: 0px;
 }
 
 .form__calendar {
   align-self: flex-start;
 
   p {
-    color: $color-pink;
+    color: $color-mint;
     font-size: $font-size;
     margin-bottom: 5px;
     font-family: $main-fonts;
+    font-weight: bold;
   }
 }
 
@@ -35,15 +40,20 @@
   // background-color: white;
   width: 100%;
   height: 60%;
-  margin-top: 40px;
+  margin-top: 20px;
   // box-shadow: 0px 1px 2px 2px gray;
+
 
 }
 
 .form__errors {
   min-height: 60px;
   font-family: $main-fonts;
-  font-size: 15px
+  font-size: 15px;
+
+  p {
+    padding-bottom: 3px
+  }
 }
 
 ;
@@ -55,6 +65,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  background-color: $color-mint;
+  padding: 0 10px;
+  border-radius: $border-radius;
 
 }
 

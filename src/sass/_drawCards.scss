@@ -11,32 +11,32 @@
 }
 
 .draw__title {
-  font-family: $main-fonts;
-  text-align: center;
-  color: $color-marin;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  @include title
 }
 
 
 .draw__cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  gap: 25px;
+  justify-content: center;
+
 }
 
 .myCards__front {
-  position: unset !important;
-  width: 200px;
+  width: 150px;
   height: 200px;
+  border-radius: $border-radius;
+  background-color: $color-lightBlue;
 }
 
 .myCards__back {
-  width: 200px;
+  width: 150px;
   height: 200px;
+
 }
 
-.Flipcard-back,
-.Flipcard-front {
-  position: unset !important;
+.flippy-front,
+.flippy-back {
+  padding: 0px !important;
 }

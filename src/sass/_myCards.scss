@@ -13,11 +13,7 @@
 ;
 
 .myCards__title {
-  font-family: $main-fonts;
-  text-align: center;
-  color: $color-marin;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  @include title
 }
 
 .myCrads__area {
@@ -27,7 +23,7 @@
 }
 
 .myCards__card {
-  background-color: $color-lightBlue;
+  background-color: $color-mint;
   width: 40%;
   padding: 10px;
   font-family: $main-fonts;
@@ -36,16 +32,19 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  box-shadow: 0px 0px 2px 3px gray;
+  box-shadow: -1px 0px 2px 1px gray;
+  border-radius: $border-radius;
 
   h2 {
     margin-bottom: 10px;
+    color: $color-lightBlue;
   }
 
   p {
     align-self: flex-start;
     padding: 5px;
     font-size: $font-size;
+    color: white;
   }
 
 }

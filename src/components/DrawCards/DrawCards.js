@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import Flipcard from "@kennethormandy/react-flipcard";
 import "@kennethormandy/react-flipcard/dist/Flipcard.css";
+import Flippy, { FrontSide, BackSide } from "react-flippy";
 
 export const DrawCards = () => {
   const [flipped, setFlipped] = useState(false);
@@ -55,18 +56,22 @@ export const DrawCards = () => {
       <div className="draw__cards">
         {cards.map(({ date, firstGratitude, secondGratitude, thirdGratitude, id }) => {
           return (
-            <Flipcard flipped={flipped}>
-              <div className="animate__animated animate__zoomIn myCards__card myCards__front " onClick={(e) => setFlipped(!flipped)}>
-                {/* Ostylować przód */}
-            Przód
-          </div>
-              <div onClick={(e) => setFlipped(!flipped)} key={id} className="myCards__card myCards__back">
+            <Flippy
+              flipOnHover={false} // default false
+              flipOnClick={true} // default false
+              flipDirection="horizontal" // horizontal or vertical
+              isFlipped={false}
+              style={{ width: "150px", height: "200px" }} /// these are optional style, it is not necessary
+            >
+              <FrontSide className="animate__zoomIn animate__animated" style={{ backgroundColor: "#c7e2ed" }}></FrontSide>
+              <BackSide ><div onClick={(e) => setFlipped(!flipped)} key={id} className="myCards__card myCards__back">
                 <h2>{date}</h2>
                 <p>{`1:${firstGratitude}`}</p>
                 <p>{`2:${secondGratitude}`}</p>
                 <p>{`3:${thirdGratitude}`}</p>
-              </div>
-            </Flipcard>
+              </div></BackSide>
+            </Flippy>
+
           )
         })}
       </div>

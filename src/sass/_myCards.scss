@@ -24,7 +24,8 @@
 
 .myCards__card {
   background-color: $color-mint;
-  width: 40%;
+  width: 70%;
+  min-height: 35vh;
   padding: 10px;
   font-family: $main-fonts;
   display: flex;
@@ -38,6 +39,7 @@
   h2 {
     margin-bottom: 10px;
     color: $color-lightBlue;
+    font-size: $font-size *2;
   }
 
   p {
@@ -45,20 +47,21 @@
     padding: 5px;
     font-size: $font-size;
     color: white;
+    letter-spacing: 1px;
   }
 
 }
 
 .myCards__edit {
-  margin-top: 15px;
+  margin-top: 20px;
   display: flex;
-  width: 50%;
+  width: 40%;
   justify-content: space-between;
 
 }
 
 .myCards__btn {
-  font-size: $font-size;
+  font-size: $font-size *1.5;
   color: $color-pink;
   padding: 5px;
 }

@@ -18,23 +18,51 @@
 .draw__cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 20px;
   justify-content: center;
 
 }
 
-.myCards__front {
-  width: 150px;
-  height: 200px;
+.drawCards__front {
+  width: 45%;
+  min-height: 30vh;
   border-radius: $border-radius;
   background-color: $color-lightBlue;
-}
-
-.myCards__back {
-  width: 150px;
-  height: 200px;
 
 }
+
+.drawCards__back {
+  width: 100%;
+  min-height: 30vh;
+  background-color: $color-mint;
+  padding: 10px;
+  font-family: $main-fonts;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  box-shadow: -1px 0px 2px 1px gray;
+  border-radius: $border-radius;
+
+  h2 {
+    margin-bottom: 10px;
+    color: $color-lightBlue;
+    font-size: $font-size * 1.2;
+  }
+
+  p {
+    align-self: flex-start;
+    padding: 5px;
+    font-size: 12px;
+    color: white;
+    letter-spacing: 1px;
+  }
+
+}
+
+
+
+
 
 .flippy-front,
 .flippy-back {

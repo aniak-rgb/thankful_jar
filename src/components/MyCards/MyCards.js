@@ -19,18 +19,21 @@ export const MyCards = () => {
   const [editSecond, setEditSecond] = useState("");
   const [editThird, setEditThird] = useState("");
   const [errors, setErrors] = useState([]);
-  const [success, setSuccess] = useState("")
+
 
   useEffect(() => {
-    db.collection("gratitude").get()
+    db.collection("gratitude").orderBy("date", "desc").get()
       .then((querySnapshot) => {
-        const allGratitudes = [];
+        let allGratitudes = [];
         querySnapshot.forEach((doc) => {
           allGratitudes.push({
             ...doc.data(),
             id: doc.id,
           });
         });
+
+        //allGratitudes.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
         setCards(allGratitudes)
       });
   }, [edit]);
@@ -54,6 +57,7 @@ export const MyCards = () => {
     setEditFirst(firstGratitude);
     setEditSecond(secondGratitude);
     setEditThird(thirdGratitude);
+    window.scrollTo(0, 0)
   }
 
   const handleUpdate = (e) => {
@@ -112,7 +116,7 @@ export const MyCards = () => {
           {cards.map(({ date, firstGratitude, secondGratitude, thirdGratitude, id }) => {
             return (
               <div key={id} className="myCards__card animate__zoomIn animate__animated">
-                <h2>{date}</h2>
+                <h2>{new Date(date.seconds * 1000).toLocaleDateString()}</h2>
                 <p>{`1. ${firstGratitude}`}</p>
                 <p>{`2. ${secondGratitude}`}</p>
                 <p>{`3. ${thirdGratitude}`}</p>

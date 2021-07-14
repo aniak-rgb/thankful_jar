@@ -1,7 +1,7 @@
 .edit__container {
   background-color: white;
-  width: 70%;
-  height: 40%;
+  width: 80%;
+  height: 60%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -36,10 +36,12 @@
   border: 2px solid gray;
   padding: 5px;
   font-family: $main-fonts;
+  width: 80%;
+  height: 20%;
 }
 
 .edit__btn {
-  padding: 5px 15px;
+  padding: 10px 20px;
   background-color: $color-pink;
   outline: none;
   color: white;
@@ -48,6 +50,7 @@
   border-radius: $border-radius;
   font-weight: bold;
   box-shadow: 0px 5px 3px 2px $color-lightBlue;
+  font-size: $font-size * 1.2
 }
 
 ;

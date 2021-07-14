@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
-
 import { db } from "../../firebase";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
@@ -17,12 +15,12 @@ export const DrawCards = () => {
 
   function shuffle(array) {
     let currentIndex = array.length, temporaryValue, randomIndex;
-    // While there remain elements to shuffle...
+
     while (0 !== currentIndex) {
-      // Pick a remaining element...
+
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
-      // And swap it with the current element.
+
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
@@ -35,7 +33,7 @@ export const DrawCards = () => {
 
 
   useEffect(() => {
-    db.collection("gratitude").get()
+    db.collection("gratitude").orderBy("date", "desc").get()
       .then((querySnapshot) => {
         const allGratitudes = [];
         querySnapshot.forEach((doc) => {
@@ -57,18 +55,18 @@ export const DrawCards = () => {
         {cards.map(({ date, firstGratitude, secondGratitude, thirdGratitude, id }) => {
           return (
             <Flippy
-              flipOnHover={false} // default false
-              flipOnClick={true} // default false
-              flipDirection="horizontal" // horizontal or vertical
+              flipOnHover={false} e
+              flipOnClick={true}
+              flipDirection="horizontal"
               isFlipped={false}
-              style={{ width: "150px", height: "200px" }} /// these are optional style, it is not necessary
+              style={{ width: "45%", minHeight: "30vh" }}
             >
-              <FrontSide className="animate__zoomIn animate__animated" style={{ backgroundColor: "#c7e2ed" }}></FrontSide>
-              <BackSide ><div onClick={(e) => setFlipped(!flipped)} key={id} className="myCards__card myCards__back">
-                <h2>{date}</h2>
-                <p>{`1:${firstGratitude}`}</p>
-                <p>{`2:${secondGratitude}`}</p>
-                <p>{`3:${thirdGratitude}`}</p>
+              <FrontSide className="animate__zoomIn animate__animated drawCards__front" style={{ backgroundColor: "#c7e2ed" }}></FrontSide>
+              <BackSide className="drawCards__back"><div onClick={(e) => setFlipped(!flipped)} key={id} className="drawCards__card drawCards__back">
+                <h2 className="drawCards__title">{new Date(date.seconds * 1000).toLocaleDateString()}</h2>
+                <p className="drawCards__text">{`1. ${firstGratitude}`}</p>
+                <p className="drawCards__text">{`2. ${secondGratitude}`}</p>
+                <p className="drawCards__text">{`3. ${thirdGratitude}`}</p>
               </div></BackSide>
             </Flippy>
 

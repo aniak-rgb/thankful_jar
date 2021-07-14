@@ -9,7 +9,7 @@ import {
 import "react-datepicker/dist/react-datepicker.css";
 import { db } from "../../firebase"
 
-export const Form = () => {
+export const Form = ({ user }) => {
 
   const [form, setForm] = useState({ firstArea: "", secondArea: "", thirdArea: "" });
   const [startDate, setStartDate] = useState(new Date());
@@ -47,13 +47,14 @@ export const Form = () => {
 
     if (errorArray.length === 0) {
       db.collection("gratitude").add({
-        date: startDate.toLocaleDateString(),
+        date: startDate,
         firstGratitude: form.firstArea,
         secondGratitude: form.secondArea,
-        thirdGratitude: form.thirdArea
+        thirdGratitude: form.thirdArea,
+
       })
-        .then((docRef) => {
-          console.log("Document written with ID: ", docRef.id);
+        .then(() => {
+
           setForm({ firstArea: "", secondArea: "", thirdArea: "", });
           setSuccess("Wdzięczność została dodana!")
 

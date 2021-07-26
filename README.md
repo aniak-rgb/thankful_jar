@@ -5,6 +5,9 @@ Application contains 3 functionalities:
 - show all cards
 - draw random card from all cards
 
+# demo
+https://optimistic-ride-2a46c5.netlify.app
+
 # technology 
 - sass "^1.32.13"
 - react "^17.0.2"
